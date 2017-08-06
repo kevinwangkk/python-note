@@ -1,4 +1,11 @@
-# coding: utf-8
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# 由于Python源代码也是一个文本文件，
+# 所以，当你的源代码中包含中文的时候，
+# 在保存源代码时，就需要务必指定保存为UTF-8编码。
+# 当Python解释器读取源代码时，为了让它按UTF-8编码读取，
+# 加以上2行代码
 
 print("hello world")
 
@@ -106,11 +113,83 @@ print(b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8'))  # 中文
 
 # ********************************************************************************
 
+# len() 函数计算的是str的字符数，如果换成bytes，len()函数就计算字节数
+print(len('ABC'))   # 3
+print(len(b'ABC'))  # 3
+
+print(len('中文'))    # 2
+print(len('中文'.encode('utf-8')))    # 6
+
 # ********************************************************************************
+# 格式化字符串
+print('hello,%s' % 'world')  # hello,world
+
+print('Hi,%s,you have $%d.' % ('Kevin', 100))  # Hi,Kevin,you have $100.
+
+# %d 整数  %f 浮点数  %s 字符串  %x 十六进制整数
+
+print('\'%2d - %02d\'' % (3, 1))  # ' 3 - 01'
+print('%.3f' % 3.1415926)  # 3.142
+
+# 如果你不太确定应该用什么，%s永远起作用，
+# 它会把任何数据类型转换为字符串
 
 # ********************************************************************************
 
+# list
+classmates = ['michael', 'bob', 'tracy']
+print(classmates)      # ['michael', 'bob', 'tracy']
+print(len(classmates))  # 3
+
+print(classmates[0])  # michael
+print(classmates[1])  # bob
+print(classmates[2])  # tracy
+
+print(classmates[len(classmates)-1])  # 防止越界
+
+print(classmates[-1])  # 直接获取最后一个元素
+print(classmates[-2])  # 获取倒数第二个元素
+
+classmates.append('adam')  # 在末尾追加元素 append
+print(classmates)  # ['michael', 'bob', 'tracy', 'adam']
+
+classmates.insert(1, 'jack')  # 在指定位置插入 insert
+print(classmates)  # ['michael', 'jack', 'bob', 'tracy', 'adam']
+
+print(classmates.pop())  # adam 删除末尾元素 pop
+print(classmates)  # ['michael', 'jack', 'bob', 'tracy']
+
+print(classmates.pop(1))  # jack 删除指定位置的元素
+print(classmates)  # ['michael', 'bob', 'tracy']
+
+classmates[1] = 'sarah'  # 可以直接赋值替换元素
+print(classmates)  # ['michael', 'sarah', 'tracy']
+
+# list里的元素类型可以不同
+L = ['Apple', 123, True]
+
+# list里包含list
+s = ['python', 'java', ['asp', 'php'], 'scheme']
+print(len(s))  # 4
+
+print(s[2][0])  # asp  类似二维数组
+print(s[2][1])  # php
+
+L = []
+print(len(L))  # 0m
+
 # ********************************************************************************
+
+# tuple 元组
+# tuple一旦初始化就不能修改
+classmates = ('Michael', 'Bob', 'Tracy')
+
+# “可变的”tuple   在tuple里定义一个list
+t = ('a', 'b', ['A', 'B'])
+t[2][0] = 'X'
+t[2][1] = 'Y'
+print(t)  # ('a', 'b', ['X', 'Y'])
+
 # ********************************************************************************
 # ********************************************************************************
 # ********************************************************************************
