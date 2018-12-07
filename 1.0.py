@@ -19,13 +19,13 @@ print('100+200 =', 100+200)
 # name = input()  # 和scanf类似
 # print(name)
 
-# name = input('please enter name:')
-# print('hello',name)
+name = input('please enter name:')
+print('hello',name)
 
 # ********************************************************************************
 
 # python对于大小写敏感
-
+print("python对于大小写敏感");
 a = 100
 if a > 100:         # 注意冒号 缩进
     print(a)
@@ -37,20 +37,20 @@ else:
 # 转义字符 \n表示换行，\t表示制表符，字符\本身也要转义，所以\\表示的字符就是\
 print("I'm OK")
 print("I'm \"OK\"")     # 转义字符 \    \"  \'
-
+                        #I'm "OK"
 print('\\\t\\')
 print(r'\\\t\\')    # r'' 表示不转义
 
 # ********************************************************************************
 
-# 字符串内部有很多换行，用\n写在一行里不好阅读，为了简化，Python允许用'''...'''的格式表示多行内容
+# 字符串内部有很多换行，用\n写在一行里不好阅读，为了简化，Python允许用 r'''. . .  ''' 的格式表示多行内容
 print(r'''line1    
 line2
 line3''')
 
 # ********************************************************************************
 
-# 布尔值 True False   and 与 or 或 not 非
+# 布尔值 True False   and 与  or 或  not 非
 # None 空值  并不能理解为0
 
 # ********************************************************************************
@@ -58,8 +58,11 @@ line3''')
 # = 赋值符号
 a = 100
 print(a)
-a = 'be'   # 这种变量本身类型不固定的语言称之为动态语言
+a = 'be'   # 这种变量本身类型不固定的语言称之为动态语言,
+           # 与之对应的是静态语言。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错
 print(a)
+
+
 
 # 赋值符号先计算右侧的值
 x = 10
@@ -67,6 +70,12 @@ x = x + 10
 print(x)
 
 # 用全部大写的变量名表示常量
+
+a = 'ABC'
+b = a
+a = 'XYZ'
+print("b = ", b)  # b =  ABC
+
 
 # ********************************************************************************
 
@@ -136,7 +145,7 @@ print('%.3f' % 3.1415926)  # 3.142
 
 # ********************************************************************************
 
-# list
+# list 列表 []
 classmates = ['michael', 'bob', 'tracy']
 print(classmates)      # ['michael', 'bob', 'tracy']
 print(len(classmates))  # 3
@@ -145,10 +154,10 @@ print(classmates[0])  # michael
 print(classmates[1])  # bob
 print(classmates[2])  # tracy
 
-print(classmates[len(classmates)-1])  # 防止越界
+print(classmates[len(classmates)-1])  # 防止越界  tracy
 
-print(classmates[-1])  # 直接获取最后一个元素
-print(classmates[-2])  # 获取倒数第二个元素
+print(classmates[-1])  # 直接获取最后一个元素 tracy
+print(classmates[-2])  # 获取倒数第二个元素  bob
 
 classmates.append('adam')  # 在末尾追加元素 append
 print(classmates)  # ['michael', 'bob', 'tracy', 'adam']
@@ -176,13 +185,15 @@ print(s[2][0])  # asp  类似二维数组
 print(s[2][1])  # php
 
 P = []
-print(len(P))  # 0m
+print(len(P))  # 0
 
 # ********************************************************************************
 
-# tuple 元组
+# tuple 元组 ()
 # tuple一旦初始化就不能修改
-classmates = ('Michael', 'Bob', 'Tracy')
+classmates = ('Michael2', 'Bob', 'Tracy')
+
+print(classmates[0])  # Michael2
 
 # “可变的”tuple   在tuple里定义一个list
 t = ('a', 'b', ['A', 'B'])
@@ -205,12 +216,12 @@ print(t)  # ('a', 'b', ['X', 'Y'])
 # input() 返回的数据类型为str
 # int() 将str转为整数
 
-# s = input('birth: ')
-# birth = int(s)
-# if birth < 2000:
-#     print('00前')
-# else:
-#     print('00后')
+s = input('birth: ')
+birth = int(s)
+if birth < 2000:
+     print('00前')
+else:
+     print('00后')
 
 # ********************************************************************************
 
@@ -226,7 +237,7 @@ print(list(range(5)))  # [0, 1, 2, 3, 4]
 Sum = 0
 for x in range(101):
     Sum = Sum + x
-print(Sum)
+print(Sum)  # 5050
 
 # while
 Sum = 0
@@ -234,7 +245,7 @@ n = 99
 while n > 0:
     Sum = Sum + n
     n = n - 2
-print(Sum)
+print(Sum)  # 2500
 
 # break
 n = 1
@@ -255,7 +266,7 @@ while n < 10:
 
 # ********************************************************************************
 
-# dict 字典  使用键-值（key-value）存储 这个通过key计算位置的算法称为哈希算法（Hash）
+# dict 字典 {} 使用键-值（key-value）存储 这个通过key计算位置的算法称为哈希算法（Hash）
 d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
 print(d['Michael'])  # 95
 
